@@ -10,7 +10,7 @@
     ],
     "target": "ES2019",
     "module": "CommonJS",
-    "outDir": "public",
+    "outDir": "dist",
     "sourceMap": false,
     "declaration": true,
     "noImplicitAny": true,
@@ -23,8 +23,7 @@
     ]
   },
   "include": [
-    "src/**/*.ts",
-    "public/**/*.ts && *.js"
+    "src/**/*.ts"
   ],
   "exclude": [
     "errors",
