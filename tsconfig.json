@@ -24,7 +24,7 @@
   },
   "include": [
     "src/**/*.ts",
-    "public/**/*"
+    "public/**/*.ts && *.js"
   ],
   "exclude": [
     "errors",
