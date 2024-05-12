@@ -1,14 +1,7 @@
 <?php
-//Tipos
-$nome = "Cicrano"; //String
-$idade = 90; //Inteiro
-$dormindo = true; //Boolean
-$vazia = null; //Null
-$sobrenome = '';//Void
-echo "Nome: $nome<br>
-    Idade: $idade<br>
-    Dormindo: $dormindo<br>
+//Mesclando Variáveis
+$firstName = "Astroncio";
+$lastName = "Silva";
+$numberOne = 2;
 
-";
-echo 'Nula: ';var_dump($vazia);
-echo'<br>String vazia: ';var_dump($sobrenome);
+echo 'Nome: '.$firstName."<br>".'Sobrenome: '.$lastName.'<br>'.'1° número: '.$numberOne;
