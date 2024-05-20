@@ -1,7 +1,9 @@
 <?php
-//Mesclando Variáveis
-$firstName = "Astroncio";
-$lastName = "Silva";
-$numberOne = 2;
+//Condicional Ternário
+require "../frontend/css/phpColors.php";
 
-echo 'Nome: '.$firstName."<br>".'Sobrenome: '.$lastName.'<br>'.'1° número: '.$numberOne;
+$nome = "Bonieky";
+$nomeCompleto = "$nome ";
+
+echo $nomeCompleto .= $sobrenome ?? 'ntem';
+
