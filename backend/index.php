@@ -1,9 +1,11 @@
 <?php
-//Condicional Ternário
+//Módulo 3: Funções Nativas de Matemática
 require "../frontend/css/phpColors.php";
 
-$nome = "Bonieky";
-$nomeCompleto = "$nome ";
+echo"<h1 style='
+    text-align: center;
+'>TABUADA</h1>";
 
-echo $nomeCompleto .= $sobrenome ?? 'ntem';
+$num1 = readline("Digite 1 nº inteiro: ");
+readline_add_history($num1);
 
