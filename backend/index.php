@@ -1,5 +1,8 @@
-<a href="./paginas/home.php">HOME</a>
-<a href="./paginas/sobre.php">SOBRE</a>
 <?php
 //Módulo 4: Introdução à HTTP Requests
-require('../frontend/css/phpColors.php');
+
+require_once "header.php";
+
+unlink('texto.txt');
+echo 'Arquivo excluído com sucesso!';
+
