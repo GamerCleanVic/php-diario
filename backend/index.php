@@ -1,8 +1,6 @@
 <?php
-//Módulo 4: Introdução à HTTP Requests
+//Módulo 4: Upload de arquivos (1/2)
 
 require_once "header.php";
 
-unlink('texto.txt');
-echo 'Arquivo excluído com sucesso!';
-
+copy("pasta/teste3.txt", "testeCopy.txt");
