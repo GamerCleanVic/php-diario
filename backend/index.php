@@ -2,24 +2,27 @@
 //Módulo 2: Funções - Tipagem de Parâmetros e Retornos #14
 require_once "header.php";
 
-function somar($num1, $num2, $num3 = null){
+function somar(float $num1, float $num2, float $num3 = null):float {
     if($num3){
-        return "Número1: $num1, Número2: $num2, Numero3: $num3";
+        return $num1 + $num2 + $num3;
     }else{
-        return "Número1: $num1, Número2: $num2";
+        return $num1 + $num2;
     }
 
 }
 
-// $result = somar(2, 3);
+// $result = somar(2.1, 3.1);
 // echo $result;
+//echo "<br><br>";
 
-function verificaIdade($anoNascimento){
+function verificaIdade(int $anoNascimento):int {
     $anoAtual = date("Y");
     $idade = $anoAtual - $anoNascimento;
     return $idade;
 }
-function portaoDeBalada($anoNascimento, $acompanhado = false){
+//echo verificaIdade(1994);
+
+function portaoDeBalada(int $anoNascimento, bool $acompanhado = false):string {
     $idadeParaEntrarNaBalada = 18;
     $idade = verificaIdade($anoNascimento);
     if($idade >= $idadeParaEntrarNaBalada){
@@ -32,6 +35,8 @@ function portaoDeBalada($anoNascimento, $acompanhado = false){
         return 'Não pode entrar na balada!';
     }
 }
+
+//echo "<br><br>";
 
 echo "1994 sem acompanhante: ".portaoDeBalada(1994)."<br>";
 echo "2007 com acompanhante: ".portaoDeBalada(2007, true)."<br>";
