@@ -1,4 +1,4 @@
 <?php
 
-$nome = $_GET['pessoa'];
-echo "Olá ".$nome;
+$numero_campanha = $_GET['campanha'];
+echo 'Você veio pela campanha'.$numero_campanha;
