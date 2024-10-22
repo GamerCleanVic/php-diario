@@ -1,8 +1,9 @@
 <?php
+require_once "header.php";
 
-if(!empty($_GET['login'] && !empty($_GET['password']))){
-    $login = $_GET['login'];
-    $password = $_GET['password'];
+if(!empty($_POST['login'] && !empty($_POST['password']))){
+    $login = $_POST['login'];
+    $password = $_POST['password'];
 
     echo "Seu login é $login e sua senha é $password";
 }
