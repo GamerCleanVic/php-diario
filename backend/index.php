@@ -1,5 +1,5 @@
 <?php
-//Módulo 3: O que é XSS (Cross Site Scripting) #6
+//Módulo 3: Lidando com Mensagens de Erro em Formulários #7
 require_once "header.php";
 //require_once "../frontend/components/item/forms/campanha.php";
 require_once "../frontend/components/item/forms/dados.php";
