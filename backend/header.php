@@ -1,3 +1,4 @@
+<link rel="shortcut icon" type="image/png" href="php-logo.png"/>
 <h1 class="h1Header">CABEÇALHO</h1>
 <hr><br>
 <?php
