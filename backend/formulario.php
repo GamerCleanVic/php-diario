@@ -7,8 +7,6 @@ require_once "header.php";
     //     echo 'Ainda não foi enviado nada!';
     // }
 
-
-
     if(!empty($_POST['login']) && !empty($_POST['password'])){
         $login = htmlspecialchars($_POST['login']);
         $senha = htmlspecialchars($_POST['password']);
