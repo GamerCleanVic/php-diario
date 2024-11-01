@@ -1,0 +1,33 @@
+.formLogin{
+    background-color: rgb(109, 63, 151);
+    color: #ccc;
+    padding: 4px;
+    width: 350px;
+    border-radius: 5px;
+}
+.labelComum1{
+    background-color: rgb(11, 11, 65);
+    padding: 3px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.labelComum2{
+    background-color: rgb(11, 11, 65);
+    padding: 3px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.labelComum3{
+    background-color: rgb(11, 11, 65);
+    color: #ccc;
+    padding: 3px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.loginButton{
+    background-color: #ccc;
+    color: green;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 75px;
+}

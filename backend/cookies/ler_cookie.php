@@ -1,3 +1,3 @@
 <?php
 echo "<pre>";
-var_dump($_COOKIE['meu_cookie']);
+var_dump($_COOKIE['meu_cookie2']);

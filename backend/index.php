@@ -1,7 +1,4 @@
 <?php
-//Módulo 3: Gerenciamento de Sessões no PHP 8 #11
+//Próxima aula - Módulo 3: Tipos de dados em Formulários #15
 require_once "header.php";
-require_once './cookies/gravar_cookie.php';
-require_once "./cookies/ler_cookie.php";
-require_once './cookies/deletar_cookie.php';
-require_once './cookies/editar_cookie.php';
+require_once 'login/index.php';

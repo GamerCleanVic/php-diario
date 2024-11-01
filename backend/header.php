@@ -67,6 +67,13 @@ margin: 0;
     .title1{
         text-transform: uppercase;
     }
+    .buttonVoltar{
+        background-color:darkgreen;
+        color: #ccc;
+        font-weight: bold;
+        text-transform: uppercase;
+        width: 75px;
+    }
 
 </style>
 ";
