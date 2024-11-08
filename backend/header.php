@@ -22,13 +22,7 @@ echo "
     border-radius: 5px;
     padding: 5px;
 }
-p{
-    text-align: justify;
-    transition: 2s;
-}p:hover{
-    color: lightgreen;
-    transition: 1.2s;
-}
+
 .h1Header{
     color: #ccc;
 }
