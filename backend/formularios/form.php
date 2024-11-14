@@ -13,8 +13,8 @@
         $texto = trim($texto);
 
         //Verificar se tem um @
-        if(strpos($texto, '@') == false){
-            $erro = 'O texto precisa ter um @';
+        if(filter_var($texto, FILTER_VALIDATE_EMAIL) == false){
+            $erro = 'E-mail inválido';
         }elseif(empty($texto)){
             $erro = 'O campo texto é obrigatório.';
         }elseif(strlen($texto) < 5){
