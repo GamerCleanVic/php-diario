@@ -3,26 +3,17 @@
     $erro = null;
     $sucesso = null;
 
+    $tecnologias = [
+        'HTML',
+        'CSS',
+        'JavaScript',
+        'PHP'
+    ];
+
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        $texto = $_POST['texto'];
-
-        //Sanitização
-        $texto = htmlspecialchars($texto);
-
-        //Remover espaços antes e depois da palavra
-        $texto = trim($texto);
-
-        //Verificar se tem um @
-        if(filter_var($texto, FILTER_VALIDATE_EMAIL) == false){
-            $erro = 'E-mail inválido';
-        }elseif(empty($texto)){
-            $erro = 'O campo texto é obrigatório.';
-        }elseif(strlen($texto) < 5){
-            $erro = 'O texto tem que ter pelo menos 5 caracteres.';
-        }elseif(strlen($texto) > 10){
-            $erro = 'O texto deve ter no máximo 10 caracteres.';
-        }else{
-            $sucesso = 'Campo validado com sucesso!';
+        $opcao = $_POST['opcao'];
+        if($opcao){
+            echo "Tecnologia selecionada foi $opcao";
         }
     }
 ?>
@@ -48,7 +39,12 @@
             </p>
         <?php endif; ?>
         <h1>FORMULÁRIO</h1>
-        <input type="text" name="texto" placeholder="Digite o texto">
+        <select name="opcao">
+            <?php
+            foreach($tecnologias as $tec) : ?>
+                <option value="<?= $tec; ?>"><?= $tec ?></option>
+            <?php endforeach; ?>
+        </select>
         <input type="submit" value="Enviar">
     </form>
 </body>
