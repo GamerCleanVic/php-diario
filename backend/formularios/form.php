@@ -9,11 +9,34 @@
         'JavaScript',
         'PHP'
     ];
+    $opcoesValidas = [
+        'javascript' => 'JAVASCRIPT',
+        'php' => 'PHP',
+    ];
+    $tecnologias_banco = [
+        [
+            'codigo' => 'html',
+            'nome' => 'HTML'
+        ],
+        [
+            'codigo' => 'css',
+            'nome' => 'CSS'
+        ]
+    ];
+    $tecnologias_api = [
+        'html' => 'HTML',
+        'css' => 'CSS',
+        'javascript' => 'JAVASCRIPT',
+        'php' => 'PHP',
+        'bootstrap' => 'Bootstrap',
+    ];
 
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $opcao = $_POST['opcao'];
-        if($opcao){
-            echo "Tecnologia selecionada foi $opcao";
+        if(!in_array($opcao, $opcoesValidas)){
+            $erro = 'Não é uma Linguagem de Programação!';
+        }else{
+            echo "A Linguagem de Programação selecionada foi: <b>$opcao</b>";
         }
     }
 ?>
@@ -40,9 +63,10 @@
         <?php endif; ?>
         <h1>FORMULÁRIO</h1>
         <select name="opcao">
-            <?php
-            foreach($tecnologias as $tec) : ?>
-                <option value="<?= $tec; ?>"><?= $tec ?></option>
+            <?php foreach($tecnologias_api as $codigo => $tecnologia) : ?>
+                <option value="<?= $tecnologia ?>">
+                    <?= $tecnologia ?>
+                </option>
             <?php endforeach; ?>
         </select>
         <input type="submit" value="Enviar">
