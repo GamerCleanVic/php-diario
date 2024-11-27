@@ -1,12 +1,13 @@
 <link rel="shortcut icon" type="image/png" href="php-logo.png"/>
-<h1 class="h1Header">CABEÇALHO</h1>
-<hr><br>
+<h1 class="h1Header">PHP DIÁRIO</h1>
 <?php
 echo "
 <style>
     body{
         background-color: #181818;
         color: #ccc;
+        margin: 0 auto;
+        max-width: 100%;
     }
 .btn1{
     background-color: lightgreen;
@@ -25,6 +26,15 @@ echo "
 
 .h1Header{
     color: #ccc;
+    text-align: center;
+    background-color: rgb(73, 44, 139);
+    padding: 20px;
+    marging-bottom: 3px;
+    border-bottom: solid 3px #ccc;
+}
+
+.form01{
+    margin: 4px;
 }
 
 /*body{

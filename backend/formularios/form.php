@@ -32,12 +32,20 @@
     ];
 
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        $opcao = $_POST['opcao'];
-        if(!in_array($opcao, $opcoesValidas)){
-            $erro = 'Não é uma Linguagem de Programação!';
-        }else{
-            echo "A Linguagem de Programação selecionada foi: <b>$opcao</b>";
+        $opcoes = $_POST['opcoes'];
+        if(count($opcoes) != 2){
+            $erro = 'Selecione 2 opções exatamente!';
         }
+        foreach($opcoes as $opcao){
+            if(!in_array($opcao, $opcoesValidas)){
+                $erro = 'A tecnologia '.$opcao.' não é válida.';
+                break;
+            }elseif(in_array($opcao, $opcoesValidas)){
+                echo $opcao.', ';
+
+            }
+        }
+        echo 'foram selecionadas.';
     }
 ?>
 
@@ -50,7 +58,7 @@
     <title>FORMULÁRIOS</title>
 </head>
 <body>
-    <form method="POST" >
+    <form method="POST" class="form01">
         <?php if(exibirErro($sucesso)) : ?>
             <p class="msgSuccess">
                 <?= $sucesso; ?>
@@ -62,7 +70,7 @@
             </p>
         <?php endif; ?>
         <h1>FORMULÁRIO</h1>
-        <select name="opcao">
+        <select name="opcoes[]" multiple>
             <?php foreach($tecnologias_api as $codigo => $tecnologia) : ?>
                 <option value="<?= $tecnologia ?>">
                     <?= $tecnologia ?>
