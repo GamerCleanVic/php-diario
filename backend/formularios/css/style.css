@@ -2,10 +2,10 @@ h1{
     color: rgb(190, 157, 95);
 }
 .msgErro{
-    color: red;
+    color: rgb(255, 0, 76);
 }
 .msgSuccess{
-    color: green;
+    color: rgb(60, 200, 255);
 }
 b{
     color: lightgreen;

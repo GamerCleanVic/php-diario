@@ -1,7 +1,5 @@
 <?php
     require_once 'functions.php';
-    $erro = null;
-    $sucesso = null;
 
     $tecnologias = [
         'HTML',
@@ -9,6 +7,10 @@
         'JavaScript',
         'PHP'
     ];
+    $erro = null;
+    $sucesso = null;
+    $tecnologiaSelecionada = [];
+
     $opcoesValidas = [
         'javascript' => 'JAVASCRIPT',
         'php' => 'PHP',
@@ -32,20 +34,18 @@
     ];
 
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        $opcoes = $_POST['opcoes'];
-        if(count($opcoes) != 2){
-            $erro = 'Selecione 2 opções exatamente!';
+        if(empty($_POST['tecnologia'])){
+            $erro = "Selecione uma Tecnologia.<br><br>";
         }
-        foreach($opcoes as $opcao){
-            if(!in_array($opcao, $opcoesValidas)){
-                $erro = 'A tecnologia '.$opcao.' não é válida.';
-                break;
-            }elseif(in_array($opcao, $opcoesValidas)){
-                echo $opcao.', ';
+        $tecnologiaSelecionada = $_POST['tecnologia'] ?? [];
 
-            }
+        if(count($tecnologiaSelecionada) != 1){
+            $erro = "Selecione apenas uma Tecnologia.<br><br>";
+        }elseif($tecnologiaSelecionada[0] != 'HTML'){
+            $erro = 'Você deve selecionar o HTML.<br><br>';
+        }else{
+            $sucesso = "Sucesso, HTML selecionado.<br><br>";
         }
-        echo 'foram selecionadas.';
     }
 ?>
 
@@ -58,25 +58,20 @@
     <title>FORMULÁRIOS</title>
 </head>
 <body>
+    <h1>Selecione o HTML</h1>
     <form method="POST" class="form01">
-        <?php if(exibirErro($sucesso)) : ?>
-            <p class="msgSuccess">
-                <?= $sucesso; ?>
-            </p>
-        <?php endif; ?>
-        <?php if(exibirErro($erro)) : ?>
-            <p class="msgErro">
-                <?= $erro; ?>
-            </p>
-        <?php endif; ?>
-        <h1>FORMULÁRIO</h1>
-        <select name="opcoes[]" multiple>
-            <?php foreach($tecnologias_api as $codigo => $tecnologia) : ?>
+        <i class="msgErro"><?= exibirErro($erro) ? $erro : '' ?></i>
+        <i class="msgSuccess"><?= exibirErro($sucesso) ? $sucesso : '' ?></i>
+
+        <select name="tecnologia[]" multiple>
+            <?php foreach($tecnologias as $tecnologia) : ?>
                 <option value="<?= $tecnologia ?>">
+                    <?= in_array($tecnologia, $tecnologiaSelecionada) ? "selected" : "" ?>
                     <?= $tecnologia ?>
                 </option>
             <?php endforeach; ?>
         </select>
+
         <input type="submit" value="Enviar">
     </form>
 </body>
