@@ -2,3 +2,4 @@
 backend/arquivos/
 backend/pasta/
 backend/tempf/
+backend/*.cache
