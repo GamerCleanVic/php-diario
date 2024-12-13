@@ -1,52 +1,53 @@
 <?php
-    require_once 'functions.php';
+require_once 'functions.php';
 
-    $tecnologias = [
-        'HTML',
-        'CSS',
-        'JavaScript',
-        'PHP'
-    ];
-    $erro = null;
-    $sucesso = null;
-    $tecnologiaSelecionada = [];
+$formas_pagamento = ['cartao', 'boleto', 'dinheiro'];
+$formas_pagamento_user = ['cartao', 'dinheiro'];
 
-    $opcoesValidas = [
-        'javascript' => 'JAVASCRIPT',
-        'php' => 'PHP',
-    ];
-    $tecnologias_banco = [
-        [
-            'codigo' => 'html',
-            'nome' => 'HTML'
-        ],
-        [
-            'codigo' => 'css',
-            'nome' => 'CSS'
-        ]
-    ];
-    $tecnologias_api = [
-        'html' => 'HTML',
-        'css' => 'CSS',
-        'javascript' => 'JAVASCRIPT',
-        'php' => 'PHP',
-        'bootstrap' => 'Bootstrap',
-    ];
+$tecnologias = [
+    'HTML',
+    'CSS',
+    'JavaScript',
+    'PHP'
+];
+$erro = null;
+$sucesso = null;
+$tecnologiaSelecionada = [];
 
-    if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        if(empty($_POST['tecnologia'])){
-            $erro = "Selecione uma Tecnologia.<br><br>";
-        }
-        $tecnologiaSelecionada = $_POST['tecnologia'] ?? [];
+$opcoesValidas = [
+    'javascript' => 'JAVASCRIPT',
+    'php' => 'PHP',
+];
+$tecnologias_banco = [
+    [
+        'codigo' => 'html',
+        'nome' => 'HTML'
+    ],
+    [
+        'codigo' => 'css',
+        'nome' => 'CSS'
+    ]
+];
+$tecnologias_api = [
+    'html' => 'HTML',
+    'css' => 'CSS',
+    'javascript' => 'JAVASCRIPT',
+    'php' => 'PHP',
+    'bootstrap' => 'Bootstrap',
+];
 
-        if(count($tecnologiaSelecionada) != 1){
-            $erro = "Selecione apenas uma Tecnologia.<br><br>";
-        }elseif($tecnologiaSelecionada[0] != 'HTML'){
-            $erro = 'Você deve selecionar o HTML.<br><br>';
-        }else{
-            $sucesso = "Sucesso, HTML selecionado.<br><br>";
-        }
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if(empty($_POST['forma_pagamento'])) {
+        $erro = "Selecione uma forma de pagamento.<br><br>";
     }
+    $formasPagamento = $_POST['forma_pagamento'] ?? '';
+
+    if(!in_array($formasPagamento, $formas_pagamento_user)) {
+        $erro = 'Forma de pagamento inválida.';
+    } else {
+        $sucesso = 'Forma de pagamento aceita!';
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -58,20 +59,18 @@
     <title>FORMULÁRIOS</title>
 </head>
 <body>
-    <h1>Selecione o HTML</h1>
+    <h1>Selecione a forma de pagamento.</h1>
     <form method="POST" class="form01">
         <i class="msgErro"><?= exibirErro($erro) ? $erro : '' ?></i>
         <i class="msgSuccess"><?= exibirErro($sucesso) ? $sucesso : '' ?></i>
 
-        <select name="tecnologia[]" multiple>
-            <?php foreach($tecnologias as $tecnologia) : ?>
-                <option value="<?= $tecnologia ?>">
-                    <?= in_array($tecnologia, $tecnologiaSelecionada) ? "selected" : "" ?>
-                    <?= $tecnologia ?>
-                </option>
-            <?php endforeach; ?>
-        </select>
-
+        <?php foreach($formas_pagamento as $forma_pagamento) : ?>
+          <hr />
+          <label>
+            <?= $forma_pagamento; ?>
+          </label>
+          <input type="radio" name="forma_pagamento" value="<?= $forma_pagamento; ?>"/><hr />
+        <?php endforeach; ?>
         <input type="submit" value="Enviar">
     </form>
 </body>
