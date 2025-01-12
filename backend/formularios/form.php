@@ -37,15 +37,8 @@ $tecnologias_api = [
 ];
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if(empty($_POST['forma_pagamento'])) {
-        $erro = "Selecione uma forma de pagamento.<br><br>";
-    }
-    $formasPagamento = $_POST['forma_pagamento'] ?? '';
-
-    if(!in_array($formasPagamento, $formas_pagamento_user)) {
-        $erro = 'Forma de pagamento inválida.';
-    } else {
-        $sucesso = 'Forma de pagamento aceita!';
+    if(!empty($_POST['honeypot'])){
+        $erro = "Ops, robô detectado!";
     }
 }
 ?>
@@ -59,19 +52,17 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>FORMULÁRIOS</title>
 </head>
 <body>
-    <h1>Selecione a forma de pagamento.</h1>
+    <h1>Preencha o formulário.</h1>
     <form method="POST" class="form01">
-        <i class="msgErro"><?= exibirErro($erro) ? $erro : '' ?></i>
-        <i class="msgSuccess"><?= exibirErro($sucesso) ? $sucesso : '' ?></i>
+        <i class="msgErro"><?= exibirErro($erro) ? $erro : '' ?></i><br />
+        <i class="msgSuccess"><?= exibirErro($sucesso) ? $sucesso : '' ?></i><br />
 
-        <?php foreach($formas_pagamento as $forma_pagamento) : ?>
-          <hr />
-          <label>
-            <?= $forma_pagamento; ?>
-          </label>
-          <input type="radio" name="forma_pagamento" value="<?= $forma_pagamento; ?>"/><hr />
-        <?php endforeach; ?>
-        <input type="submit" value="Enviar">
+
+        <input type="text" name="nome" placeholder="Digite seu e-mail: " /><br />
+        <input type="text" name="email" placeholder="Digite seu nome: " /><br />
+        <input type="text" name="mensagem" placeholder="Digite sua mensagem: " /><br />
+        <input type="hidden" name="honeypot" value="" />
+        <input type="submit" value="Enviar" />
     </form>
 </body>
 </html>
