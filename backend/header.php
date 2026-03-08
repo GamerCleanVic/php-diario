@@ -59,7 +59,7 @@ margin: 0;
     text-align: center;
     }
     h1{
-    color: #000;
+    color: #ccc;
     }
     p{
     color: #ccc;
