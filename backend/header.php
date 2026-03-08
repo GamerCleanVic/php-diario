@@ -78,6 +78,12 @@ margin: 0;
         text-transform: uppercase;
         width: 75px;
     }
+    b{
+      color: #bb99ff;
+    }
+    font{
+      color: #ff4d94;
+    }
 
 </style>
 ";
