@@ -1,6 +1,7 @@
 <?php
-//Próxima aula: Módulo 1 - Conhecendo PECL e Extensões do PHP
+//Próxima aula: Módulo 2 - Variavéis PHP no HTML - Trabalhando com diferentes tipos
 
 
 require_once "header.php";
-require_once 'condicionais/logica_condicional2.php';
+require_once 'modulo2/aula1.php';
+
