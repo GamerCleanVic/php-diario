@@ -1,7 +1,7 @@
 <?php
-//Próxima aula: Módulo 2 - Variavéis PHP no HTML - Trabalhando com diferentes tipos
+//Próxima aula: Módulo 2 - Separando Lógica e Exibição
 
 
 require_once "header.php";
-require_once 'modulo2/aula1.php';
+require_once 'modulo2/ficha_cadastral.php';
 

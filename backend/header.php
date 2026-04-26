@@ -85,5 +85,32 @@ margin: 0;
       color: #ff4d94;
     }
 
+.container-ficha1{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;    
+}
+.card-ficha1{
+    background-color: #d6b691;
+    color: #483a66 !important;
+    border: solid 3px #483a66;
+    padding: 12px;
+}
+.card-ficha1 p{
+    border-bottom: solid 2px #483a66;
+    border-right: solid 2px #483a66;
+    padding: 3px;
+    color: #483a66 !important;
+}
+.card-ficha1 h1{
+    text-align: center;
+    color: #483a66;
+}
+.card-ficha1 b{
+    color: #483a66 !important;
+}
+
 </style>
 ";
