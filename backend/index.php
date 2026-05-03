@@ -1,5 +1,5 @@
 <?php
-//Próxima aula: Módulo 2 - Separando Lógica e Exibição
+//Próxima aula: Módulo 2 - Formatando Valores Monetários
 
 
 require_once "header.php";

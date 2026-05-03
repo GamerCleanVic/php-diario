@@ -8,6 +8,20 @@ $status_emprego = true;
 $anos_aposentadoria = null;
 $habilidades = ["PHP", "JavaScript", "HTML", "CSS"];
 
+$situacaoEmprego = null;
+if($status_emprego){
+  $situacaoEmprego = 'Empregado';
+}else{
+  $situacaoEmprego = 'Desempregado';
+}
+
+$anos_necessarios_para_aposentar = null;
+if($sexo == "M"){
+  $anos_necessarios_para_aposentar = 65;
+}else{
+  $anos_necessarios_para_aposentar = 62;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -30,11 +44,11 @@ $habilidades = ["PHP", "JavaScript", "HTML", "CSS"];
             <p>Sexo: <b><?= $sexo; ?></b></p>
             <p>Salário Mensal: <b><?= $salario_mensal; ?></b></p>
             <p>Salário Anual: <b><?= $salario_anual; ?></b></p>
-            <p>Status de Emprego: <b><?= ($status_emprego) ? 'Empregado' : 'Desempregado'; ?></b></p>
-            <p>Anos para Aposentadoria: <b><?= ($sexo == 'M') ? 
-              ($anos_aposentadoria = ($idade - 65)) : 
-              ($anos_aposentadoria = ($idade - 62))?></b></p>
-            <p>Habilidades: <b><?php foreach($habilidades as $item){ echo $item.', ';} ?></b></p>
+            <p>Status de Emprego: <b><?= $situacaoEmprego ?></b></p>
+            <p>Anos para Aposentadoria: <b> <?= 
+              $anos_necessarios_para_aposentar - $idade ?> </b></p>
+            <p>Habilidades: <b><?php foreach($habilidades as $item){
+             echo $item.', ';} ?></b></p>
         </div>
     </div>
 
