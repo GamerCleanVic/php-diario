@@ -1,26 +1,6 @@
 <?php
-$nome = "Bertoldo";
-$idade = 25;
-$sexo = "M";
-$salario_mensal = 2210.30;
-$salario_anual = ($salario_mensal * 12);
-$status_emprego = true;
-$anos_aposentadoria = null;
-$habilidades = ["PHP", "JavaScript", "HTML", "CSS"];
-
-$situacaoEmprego = null;
-if($status_emprego){
-  $situacaoEmprego = 'Empregado';
-}else{
-  $situacaoEmprego = 'Desempregado';
-}
-
-$anos_necessarios_para_aposentar = null;
-if($sexo == "M"){
-  $anos_necessarios_para_aposentar = 65;
-}else{
-  $anos_necessarios_para_aposentar = 62;
-}
+require_once 'constants.php';
+require_once 'data.php';
 
 ?>
 
@@ -42,8 +22,8 @@ if($sexo == "M"){
             <p>Nome: <b><?= $nome; ?></b></p>
             <p>Idade: <b><?= $idade; ?></b></p>
             <p>Sexo: <b><?= $sexo; ?></b></p>
-            <p>Salário Mensal: <b><?= $salario_mensal; ?></b></p>
-            <p>Salário Anual: <b><?= $salario_anual; ?></b></p>
+            <p>Salário Mensal: <b>R$ <?= number_format($salario_mensal, 2, ',', '.'); ?></b></p>
+            <p>Salário Anual: <b>R$ <?= number_format($salario_anual, 2, ',', '.'); ?></b></p>
             <p>Status de Emprego: <b><?= $situacaoEmprego ?></b></p>
             <p>Anos para Aposentadoria: <b> <?= 
               $anos_necessarios_para_aposentar - $idade ?> </b></p>
